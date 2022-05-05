@@ -1,8 +1,8 @@
 // import functions and grab DOM elements
 import { renderGoblin } from './utils.js';
-const goblinName = document.getElementById('goblinName');
 const goblinArea = document.getElementById('goblinArea');
 const form = document.getElementById('form');
+const goblinsDestroyedDiv = document.getElementById('goblinsDestroyedDiv');
 
 // let state
 let goblinsDestroyed = 0;
@@ -12,6 +12,7 @@ let goblins = [
 ];
 let HP = 10;
 let currentID = 3;
+goblinsDestroyedDiv.textContent = goblinsDestroyed;
 
 // set event listeners 
 form.addEventListener('submit', (e) => {
@@ -25,14 +26,14 @@ form.addEventListener('submit', (e) => {
     };
     currentID++;
     goblins.push(newGuy);
-    console.log(goblins);
     form.reset();
-    // displayGoblins();
+    displayGoblins();
 });
 
 function displayGoblins() {
     goblinArea.textContent = '';
-    for (let goblin in goblins) {
+    for (let goblin of goblins) {
+        console.log(goblin);
         const gobbo = renderGoblin(goblin);
         gobbo.addEventListener('click', () => {
             goblinClickHandler(goblin);
@@ -55,6 +56,7 @@ function goblinClickHandler(gobbo) {
     }
     if (gobbo.hp === 0) {
         alert(`You killed ${gobbo.name}! Their gold is yours.`);
+        goblinsDestroyed++;
     }
     if (HP === 0) {
         alert('The goblins have prevailed. You lose. Don\'t do drugs.');
