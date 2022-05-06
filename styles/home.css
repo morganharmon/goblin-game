@@ -1,1 +1,12 @@
 /* add home page styles here */
+.goblin {
+    background-color: lightblue;
+}
+
+.dead {
+    background-color: red;
+}
+
+.hide {
+    display: none;
+}
