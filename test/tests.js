@@ -4,7 +4,7 @@ import { renderGoblin } from '../utils.js';
 const test = QUnit.test;
 
 test('renderGoblin should return a newGobbo div', (expect) => {
-    const expected = `<div class="goblin"><p>Phyllis</p><p>5</p></div>`;
+    const expected = `<div class="goblin"><p>Phyllis</p><p>5 hp</p></div>`;
     const gobbo = {
         name: 'Phyllis',
         HitPoints: 5,
