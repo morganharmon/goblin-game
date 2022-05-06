@@ -1,1 +1,36 @@
 /* add home page styles here */
+.goblin {
+    background-color: lightblue;
+    border: solid 1px var(--color1);
+    font-size: larger;
+}
+
+.dead {
+    background-color: orange;
+}
+
+.hide {
+    display: none;
+}
+
+.gold {
+    margin: 20px;
+    height: 128px;
+}
+
+#yourHP {
+    padding: 10px;
+}
+
+#goblinsDestroyedDiv {
+    padding: 10px;
+}
+
+#form {
+    padding: 10px;
+}
+
+#goblinArea {
+    display: flex;
+    flex-wrap: wrap;
+}
