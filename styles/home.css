@@ -10,3 +10,8 @@
 .hide {
     display: none;
 }
+
+.gold {
+    margin: 20px;
+    height: 128px;
+}

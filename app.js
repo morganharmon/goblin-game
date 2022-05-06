@@ -5,6 +5,7 @@ const form = document.getElementById('form');
 const goblinsDestroyedDiv = document.getElementById('goblinsDestroyedDiv');
 const hpDiv = document.getElementById('yourHP');
 const resetButton = document.getElementById('reset');
+const goldDiv = document.getElementById('goldDiv');
 
 // let state
 let goblinsDestroyed = 0;
@@ -58,14 +59,24 @@ function goblinClickHandler(gobbo) {
             goblinArea.classList.toggle('hide');
         }
     } else {
+        alert(`${gobbo.name} swung at you and missed!`);
+    }
+    
+    const num2 = Math.ceil(Math.random() * 10);
+    if (num2 < 6) {
         alert(`You hit ${gobbo.name} for 1 damage!`);
         gobbo.HitPoints--;
         if (gobbo.HitPoints === 0) {
             alert(`You killed ${gobbo.name}! Their gold is yours.`);
             goblinsDestroyed++;
             goblinsDestroyedDiv.textContent = goblinsDestroyed;
-
+            const gold = document.createElement('img');
+            gold.src = './assets/goldcoins.jpg';
+            gold.classList.add('gold');
+            goldDiv.append(gold);
         }
+    } else {
+        alert(`You swung at ${gobbo.name} and missed!`);
     }
     displayGoblins();
 }
@@ -86,6 +97,7 @@ function resetGame() {
     goblinArea.classList.toggle('hide');
     goblinsDestroyed = 0;
     goblinsDestroyedDiv.textContent = 0;
+    goldDiv.textContent = '';
     displayGoblins();
 }
         
