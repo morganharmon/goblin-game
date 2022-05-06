@@ -6,6 +6,7 @@ const goblinsDestroyedDiv = document.getElementById('goblinsDestroyedDiv');
 const hpDiv = document.getElementById('yourHP');
 const resetButton = document.getElementById('reset');
 const goldDiv = document.getElementById('goldDiv');
+const title = document.getElementById('title');
 
 // let state
 let goblinsDestroyed = 0;
@@ -57,6 +58,8 @@ function goblinClickHandler(gobbo) {
             resetButton.classList.toggle('hide');
             form.classList.toggle('hide');
             goblinArea.classList.toggle('hide');
+            hpDiv.classList.add('dead');
+            title.textContent = 'You are dead.';
         }
     } else {
         alert(`${gobbo.name} swung at you and missed!`);
@@ -95,9 +98,11 @@ function resetGame() {
     resetButton.classList.toggle('hide');
     form.classList.toggle('hide');
     goblinArea.classList.toggle('hide');
+    hpDiv.classList.toggle('dead');
     goblinsDestroyed = 0;
     goblinsDestroyedDiv.textContent = 0;
     goldDiv.textContent = '';
+    title.textContent = 'Defeat the goblins!';
     displayGoblins();
 }
         
